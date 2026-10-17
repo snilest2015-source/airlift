@@ -1,474 +1,387 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Эрлифт Шухова – добыча нефти</title>
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Эрлифт Шухова</title>
+<meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
-    :root{
-        --accent:#ff8c00;
-        --text:#e8e8e8;
-        --muted:#a8a8a8;
-        --oil:#2b1b12;
-        --air:#4fc3f7;
-        --panel:rgba(30,30,30,.82);
-    }
-    html,body{
-        margin:0;padding:0;width:100%;height:100%;
-        background:transparent;overflow:hidden;
-        font-family:'Oswald',sans-serif;
-        color:var(--text);
-        display:flex;align-items:center;justify-content:center;
-    }
-    .slide{
-        width:1280px;height:720px;
-        transform-origin:center center;
-        display:flex;flex-direction:column;
-        padding:18px 26px;box-sizing:border-box;gap:10px;
-    }
-    .header{text-align:center;flex-shrink:0}
-    .header h1{
-        margin:0 0 6px;color:var(--accent);
-        font-size:1.65rem;letter-spacing:.5px;font-weight:600;
-    }
-    .header p{
-        margin:0 auto;color:var(--muted);
-        font-size:.9rem;line-height:1.45;max-width:1040px;font-weight:300;
-    }
-    .main{display:flex;flex-direction:row;gap:18px;flex:1;min-height:0}
-    .scene{
-        flex:2;min-width:0;background:var(--panel);
-        border-radius:12px;padding:14px;
-        box-shadow:0 8px 32px rgba(0,0,0,.45);
-        backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);
-        display:flex;align-items:center;justify-content:center;
-    }
-    .scene svg{width:100%;height:100%;max-height:100%;display:block}
-    .controls{
-        flex:1;min-width:0;background:var(--panel);
-        border-radius:12px;padding:18px;
-        box-shadow:0 8px 32px rgba(0,0,0,.45);
-        backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);
-        display:flex;flex-direction:column;gap:14px;
-    }
-    .controls h2{
-        margin:0;font-size:1rem;color:var(--accent);
-        text-transform:uppercase;letter-spacing:.8px;
-        border-bottom:1px solid #444;padding-bottom:6px;font-weight:600;
-    }
-    .ctrl{display:flex;flex-direction:column;gap:6px}
-    .ctrl label{
-        display:flex;justify-content:space-between;
-        font-weight:500;font-size:.92rem;letter-spacing:.3px;
-    }
-    .ctrl input[type=range]{width:100%;cursor:pointer;accent-color:var(--accent)}
-    .btn-pump{
-        background:#1565c0;color:#fff;border:none;
-        padding:12px;border-radius:8px;font-size:.95rem;
-        font-weight:600;cursor:pointer;letter-spacing:1px;
-        text-transform:uppercase;transition:all .25s ease;
-        font-family:'Oswald',sans-serif;
-    }
-    .btn-pump:hover{background:#0d47a1;transform:scale(1.02)}
-    .btn-pump.active{background:#2e7d32;box-shadow:0 0 15px rgba(76,175,80,.5)}
-    .status{
-        background:rgba(0,0,0,.35);border:1px solid #444;
-        border-radius:8px;padding:12px;margin-top:auto;
-    }
-    .status h3{
-        margin:0 0 8px;font-size:.85rem;color:var(--accent);
-        border-bottom:1px solid #444;padding-bottom:4px;
-        text-transform:uppercase;letter-spacing:.8px;font-weight:600;
-    }
-    .row{display:flex;justify-content:space-between;font-size:.9rem;margin-bottom:6px;font-weight:300}
-    .row b{font-weight:600}
-    #feedback{
-        font-style:italic;color:var(--muted);
-        font-size:.85rem;line-height:1.4;margin-top:6px;
-        min-height:36px;font-weight:300;
-    }
-    .lbl{
-        font-family:'Oswald',sans-serif;font-size:13px;fill:#ddd;
-        user-select:none;letter-spacing:.5px;font-weight:300;
-        paint-order: stroke;
-        stroke: rgba(0,0,0,.85);
-        stroke-width: 3px;
-        stroke-linejoin: round;
-    }
-    .arrow{fill:none;stroke:#ddd;stroke-width:2;marker-end:url(#ah)}
+/* Layout: drawing sheet. Header on top, a well cross-section on the left, controls column with a title-block result stamp on the right; stacks on phones. */
+:root{
+  --paper:#e6ecf0;
+  --panel:#d7e0e6;
+  --metal:#c3cfd7;
+  --metal2:#a6b5c0;
+  --ink:#10202b;
+  --line:#2e4a5e;
+  --muted:#566f80;
+  --accent:#d8371b;
+  --on-accent:#ffffff;
+  --warn:#e3a400;
+  --ok:#238a5f;
+  --mazut:#3b2418;
+  --spray:#8a5524;
+  --air:#2a7fb0;
+  --soil:#cbc0b0;
+  --soil2:#b8ab97;
+  --font:'Oswald','Arial Narrow','Helvetica Neue',Arial,sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#0d1922;--panel:#162733;--metal:#27394a;--metal2:#1d2e3c;--ink:#e7eff4;--line:#86a9bf;--muted:#8aa1b0;
+    --accent:#ff6a47;--on-accent:#1a0a05;--warn:#f0b429;--ok:#3fbf88;--mazut:#c99a6b;--spray:#d9a96f;--air:#6ec6f0;--soil:#2a2620;--soil2:#201c17;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#0d1922;--panel:#162733;--metal:#27394a;--metal2:#1d2e3c;--ink:#e7eff4;--line:#86a9bf;--muted:#8aa1b0;
+  --accent:#ff6a47;--on-accent:#1a0a05;--warn:#f0b429;--ok:#3fbf88;--mazut:#c99a6b;--spray:#d9a96f;--air:#6ec6f0;--soil:#2a2620;--soil2:#201c17;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;background:var(--paper);color:var(--ink);font-family:var(--font);font-size:16px;line-height:1.35;
+  padding-block:16px 32px;
+  padding-left:max(16px,env(safe-area-inset-left,0px));
+  padding-right:max(16px,env(safe-area-inset-right,0px));
+}
+.wrap{max-width:1180px;margin:0 auto;display:flex;flex-direction:column;gap:16px}
+.tag{margin:0 0 4px;font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--accent)}
+h1{margin:0;font-size:clamp(30px,6vw,52px);line-height:1;font-weight:700;letter-spacing:.01em;text-transform:uppercase;text-wrap:balance}
+.sub{margin:10px 0 0;max-width:70ch;font-size:18px;font-weight:300;line-height:1.45}
+.main{display:grid;grid-template-columns:minmax(0,2fr) minmax(300px,1fr);gap:16px;align-items:start}
+.board{border:2px solid var(--ink);background:var(--panel);min-width:0}
+.board svg{display:block;width:100%;height:auto}
+.panel{display:flex;flex-direction:column;gap:18px;min-width:0}
+.ctl{display:flex;flex-direction:column;gap:6px}
+.ctl .row{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+.ctl label{font-size:15px;font-weight:600;letter-spacing:.12em;text-transform:uppercase}
+.ctl output{font-size:30px;font-weight:600;line-height:1;font-variant-numeric:tabular-nums}
+input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:30px;margin:0;background:transparent;cursor:pointer;touch-action:pan-y}
+input[type=range]::-webkit-slider-runnable-track{height:6px;background:linear-gradient(to right,var(--accent) var(--p,50%),var(--ink) var(--p,50%))}
+input[type=range]::-moz-range-track{height:6px;background:var(--ink)}
+input[type=range]::-moz-range-progress{height:6px;background:var(--accent)}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:26px;height:26px;margin-top:-10px;background:var(--paper);border:3px solid var(--ink);border-radius:0}
+input[type=range]::-moz-range-thumb{width:20px;height:20px;background:var(--paper);border:3px solid var(--ink);border-radius:0}
+input[type=range]:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.btn{
+  display:flex;align-items:center;justify-content:center;min-height:64px;padding:10px 16px;width:100%;
+  font-family:var(--font);font-size:20px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--paper);background:var(--ink);border:2px solid var(--ink);border-radius:2px;cursor:pointer;
+  touch-action:manipulation;user-select:none;-webkit-user-select:none;
+}
+.btn[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
+.btn:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.stamp{border:2px solid var(--ink);background:var(--paper);box-shadow:6px 6px 0 var(--accent)}
+.stamp h2{margin:0;padding:8px 12px;font-size:14px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;background:var(--ink);color:var(--paper)}
+.stamp .r{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:9px 12px;border-bottom:2px solid var(--ink)}
+.stamp .r>span:first-child,.rate .top span:first-child{font-size:13px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.stamp .v{display:inline-flex;align-items:center;gap:8px;font-size:19px;font-weight:600;text-align:right}
+.stamp .v i{flex:none;width:12px;height:12px;background:var(--muted)}
+.stamp .v[data-t="ok"] i{background:var(--ok)}
+.stamp .v[data-t="warn"] i{background:var(--warn)}
+.stamp .v[data-t="bad"] i{background:var(--accent)}
+.rate{padding:12px 12px 14px;border-bottom:2px solid var(--ink)}
+.rate .top{display:flex;justify-content:space-between;align-items:baseline;gap:10px;margin-bottom:8px}
+.rate .top b{font-size:26px;font-weight:600;line-height:1;font-variant-numeric:tabular-nums}
+.meter{height:16px;border:2px solid var(--ink);background:var(--panel)}
+.meter div{height:100%;width:0;background:var(--ok);transition:width .2s}
+.meter div[data-t="warn"]{background:var(--warn)}
+.meter div[data-t="bad"]{background:var(--accent)}
+#feedback{margin:0;padding:12px;min-height:6.8em;font-size:16px;font-weight:400;line-height:1.4}
+.lbl{font-family:var(--font);font-weight:500;font-size:14px;letter-spacing:.1em;fill:var(--ink);paint-order:stroke;stroke:var(--panel);stroke-width:4px;stroke-linejoin:round;user-select:none}
+.sv-bg{fill:var(--panel)}
+.sv-grid{fill:none;stroke:var(--line);stroke-opacity:.14;stroke-width:1}
+.hatch{stroke:var(--line);stroke-opacity:.3;stroke-width:1.5}
+.soil{fill:var(--soil)}
+.soil2{fill:var(--soil2);opacity:.85}
+.bed{fill:var(--mazut);opacity:.85}
+.surface{fill:var(--ink)}
+.body{fill:var(--metal);stroke:var(--ink);stroke-width:3}
+.body2{fill:var(--metal2);stroke:var(--ink);stroke-width:2.5}
+.cap{fill:var(--paper);stroke:var(--ink);stroke-width:2.5}
+.shine{stroke:var(--paper);stroke-opacity:.55;stroke-width:3;stroke-linecap:round}
+.airpipe{fill:none;stroke:var(--metal2);stroke-width:8;stroke-linecap:round}
+.airflow{fill:none;stroke:var(--air);stroke-width:2;stroke-dasharray:6 6}
+.oilpipe{fill:none;stroke:var(--mazut);stroke-width:6;opacity:.85}
+.oillevel{fill:var(--mazut);opacity:.65}
+.lead{fill:none;stroke:var(--ink);stroke-width:2;marker-end:url(#ah)}
+.ah{fill:var(--ink)}
+.tick{stroke:var(--ink);stroke-width:2}
+.needle{stroke:var(--accent);stroke-width:3;stroke-linecap:round}
+.p-air{fill:var(--air)}
+.p-oil{fill:var(--mazut)}
+.p-spray{fill:var(--spray)}
+.p-gush{fill:var(--spray)}
+.sw-air{fill:var(--air)}.sw-oil{fill:var(--mazut)}
+@media (max-width:820px){
+  .main{grid-template-columns:minmax(0,1fr)}
+  .sub{font-size:17px}
+}
+@media (prefers-reduced-motion:reduce){.meter div{transition:none}}
 </style>
-</head>
-<body>
 
-<div class="slide" id="slide">
-    <div class="header">
-        <h1>Эрлифт Шухова — быстрая и дешёвая добыча нефти</h1>
-        <p>
-            Вместо желонок и открытых ям Шухов предложил закачивать воздух под давлением
-            в нижнюю часть трубы, опущенной в скважину. Нефть вспенивалась и поднималась
-            наверх — как в природном фонтане. Включите компрессор и подберите давление,
-            диаметр и глубину трубы.
-        </p>
+<div class="wrap">
+  <header>
+    <p class="tag">В. Г. Шухов · быстрая и дешёвая добыча нефти</p>
+    <h1>Эрлифт Шухова</h1>
+    <p class="sub">Вместо желонок и открытых ям Шухов предложил закачивать воздух под давлением в нижнюю часть трубы, опущенной в скважину. Нефть вспенивалась и поднималась наверх, как в природном фонтане. Включите компрессор и подберите давление, диаметр и глубину трубы.</p>
+  </header>
+
+  <div class="main">
+    <div class="board">
+      <svg viewBox="0 0 800 500" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Разрез скважины: компрессор нагнетает воздух в трубу, нефть поднимается к сборнику">
+        <defs>
+          <marker id="ah" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon class="ah" points="0 0,10 3.5,0 7"/></marker>
+          <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path class="sv-grid" d="M 40 0 L 0 0 0 40"/></pattern>
+          <pattern id="hatch" width="14" height="14" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line class="hatch" x1="0" y1="0" x2="0" y2="14"/></pattern>
+        </defs>
+
+        <!-- небо и земля -->
+        <rect class="sv-bg" width="800" height="170"/>
+        <rect width="800" height="170" fill="url(#grid)"/>
+        <rect class="soil" x="0" y="170" width="800" height="330"/>
+        <rect x="0" y="170" width="800" height="330" fill="url(#hatch)"/>
+        <path class="soil2" d="M0 260 Q200 240 400 270 T800 250 L800 500 L0 500 Z"/>
+        <path class="soil2" d="M0 360 Q220 340 420 370 T800 350 L800 500 L0 500 Z"/>
+        <path class="bed" d="M0 420 Q200 400 400 430 T800 410 L800 470 Q600 490 400 470 T0 480 Z"/>
+        <rect class="surface" x="0" y="164" width="800" height="8"/>
+
+        <!-- оборудование -->
+        <g id="pipeGroup">
+          <rect class="body" id="pipeRect" x="380" y="120" width="40" height="330"/>
+          <line class="shine" id="pipeShine" x1="390" y1="128" x2="390" y2="440"/>
+          <rect class="body2" id="pipeHead" x="360" y="110" width="80" height="22" rx="2"/>
+          <rect class="body2" id="pipeBottom" x="375" y="450" width="50" height="8" rx="1"/>
+        </g>
+
+        <rect class="body" x="350" y="60" width="100" height="40" rx="3"/>
+        <rect class="cap" x="360" y="70" width="80" height="20"/>
+
+        <rect class="body" x="640" y="40" width="110" height="60" rx="3"/>
+        <circle class="cap" cx="675" cy="70" r="16"/>
+        <circle class="cap" cx="720" cy="70" r="16"/>
+
+        <path class="airpipe" d="M640 70 L520 70 L520 95 L450 95"/>
+        <path class="airflow" d="M640 70 L520 70 L520 95 L450 95"/>
+        <path class="airflow" d="M450 95 L450 130 L400 130"/>
+
+        <path class="oilpipe" d="M350 80 L250 80 L250 100"/>
+        <rect class="cap" x="180" y="90" width="120" height="60" rx="3"/>
+        <rect class="oillevel" x="183" y="116" width="114" height="31"/>
+
+        <g transform="translate(695,170)">
+          <circle class="cap" r="26" stroke-width="3"/>
+          <g class="tick">
+            <line transform="rotate(-135)" x1="0" y1="-21" x2="0" y2="-25"/><line transform="rotate(-90)" x1="0" y1="-21" x2="0" y2="-25"/>
+            <line transform="rotate(-45)" x1="0" y1="-21" x2="0" y2="-25"/><line transform="rotate(0)" x1="0" y1="-21" x2="0" y2="-25"/>
+            <line transform="rotate(45)" x1="0" y1="-21" x2="0" y2="-25"/><line transform="rotate(90)" x1="0" y1="-21" x2="0" y2="-25"/>
+            <line transform="rotate(135)" x1="0" y1="-21" x2="0" y2="-25"/>
+          </g>
+          <line class="needle" id="gauge-needle" x1="0" y1="0" x2="0" y2="-17"/>
+          <circle r="3.5" fill="var(--ink)"/>
+        </g>
+
+        <!-- частицы -->
+        <g id="particles"></g>
+        <g id="gusher" style="display:none"><ellipse class="p-gush" cx="400" cy="55" rx="70" ry="20" opacity=".5"/></g>
+
+        <!-- подписи -->
+        <text x="300" y="68" class="lbl" text-anchor="end">НЕФТЬ</text>
+        <line x1="305" y1="68" x2="345" y2="80" class="lead"/>
+        <text x="560" y="40" class="lbl">ВОЗДУХ</text>
+        <line x1="565" y1="46" x2="565" y2="62" class="lead"/>
+        <text x="695" y="124" class="lbl" text-anchor="middle">КОМПРЕССОР</text>
+        <text x="240" y="176" class="lbl" text-anchor="middle" dy="14">СБОР НЕФТИ</text>
+        <text x="695" y="214" class="lbl" text-anchor="middle" dy="10">ДАВЛЕНИЕ</text>
+        <text x="120" y="455" class="lbl">НЕФТЯНОЙ ПЛАСТ</text>
+
+        <g transform="translate(20,20)">
+          <rect class="sw-air" x="0" y="0" width="14" height="14"/>
+          <text x="22" y="12" class="lbl">воздух</text>
+          <rect class="sw-oil" x="0" y="24" width="14" height="14"/>
+          <text x="22" y="36" class="lbl">нефть</text>
+        </g>
+      </svg>
     </div>
 
-    <div class="main">
-        <div class="scene">
-            <svg viewBox="0 0 800 500" preserveAspectRatio="xMidYMid meet">
-                <defs>
-                    <marker id="ah" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
-                        <polygon points="0 0,10 3.5,0 7" fill="#ddd"/>
-                    </marker>
-                    <linearGradient id="groundGrad" x1="0" y1="0" x2="0" y2="1">
-                        <stop offset="0%" stop-color="#5a4632"/>
-                        <stop offset="100%" stop-color="#2b2118"/>
-                    </linearGradient>
-                    <linearGradient id="pipeGrad" x1="0" y1="0" x2="1" y2="0">
-                        <stop offset="0%" stop-color="#444"/>
-                        <stop offset="50%" stop-color="#999"/>
-                        <stop offset="100%" stop-color="#444"/>
-                    </linearGradient>
-                    <linearGradient id="oilGrad" x1="0" y1="0" x2="0" y2="1">
-                        <stop offset="0%" stop-color="#7a4a1f"/>
-                        <stop offset="100%" stop-color="#1b0f07"/>
-                    </linearGradient>
-                </defs>
+    <div class="panel">
+      <div class="ctl">
+        <div class="row"><label for="pressure">Давление воздуха</label><output id="pressureVal" for="pressure">0%</output></div>
+        <input type="range" id="pressure" min="0" max="100" value="0">
+      </div>
+      <div class="ctl">
+        <div class="row"><label for="pipeWidth">Диаметр трубы</label><output id="pipeVal" for="pipeWidth">40 см</output></div>
+        <input type="range" id="pipeWidth" min="20" max="100" value="40">
+      </div>
+      <div class="ctl">
+        <div class="row"><label for="depth">Глубина погружения</label><output id="depthVal" for="depth">60%</output></div>
+        <input type="range" id="depth" min="20" max="100" value="60">
+      </div>
 
-                <!-- ===== СЛОЙ 1: фон, земля, пласт ===== -->
-                <rect width="800" height="170" fill="#1c2530"/>
-                <rect x="0" y="170" width="800" height="330" fill="url(#groundGrad)"/>
-                <path d="M0 260 Q200 240 400 270 T800 250 L800 500 L0 500 Z" fill="#3b2d20" opacity=".55"/>
-                <path d="M0 360 Q220 340 420 370 T800 350 L800 500 L0 500 Z" fill="#261c14" opacity=".6"/>
-                <path d="M0 420 Q200 400 400 430 T800 410 L800 470 Q600 490 400 470 T0 480 Z" fill="url(#oilGrad)" opacity=".9"/>
-                <text x="120" y="455" class="lbl" fill="#e0b080" font-size="12px">НЕФТЯНОЙ ПЛАСТ</text>
-                <rect x="0" y="150" width="800" height="20" fill="#121820"/>
+      <button id="pumpBtn" class="btn" type="button" aria-pressed="false">Включить компрессор</button>
 
-                <!-- ===== СЛОЙ 2: оборудование ===== -->
-                <g id="pipeGroup">
-                    <rect id="pipeRect" x="380" y="120" width="40" height="330"
-                          fill="url(#pipeGrad)" stroke="#111" stroke-width="3"/>
-                    <rect id="pipeHead" x="360" y="110" width="80" height="22"
-                          fill="#4a4a4a" stroke="#111" stroke-width="2" rx="3"/>
-                    <rect id="pipeBottom" x="375" y="450" width="50" height="8"
-                          fill="#666" stroke="#111" stroke-width="2" rx="2"/>
-                </g>
-
-                <rect x="350" y="60" width="100" height="40" fill="#555" stroke="#111" stroke-width="3" rx="4"/>
-                <rect x="360" y="70" width="80" height="20" fill="#2b2b2b" stroke="#111" stroke-width="1.5" rx="2"/>
-
-                <rect x="640" y="40" width="110" height="60" fill="#3b3b3b" stroke="#111" stroke-width="3" rx="8"/>
-                <circle cx="675" cy="70" r="16" fill="#666" stroke="#111" stroke-width="2"/>
-                <circle cx="720" cy="70" r="16" fill="#666" stroke="#111" stroke-width="2"/>
-
-                <path d="M640 70 L520 70 L520 95 L450 95" fill="none" stroke="#555" stroke-width="8" stroke-linecap="round"/>
-                <path d="M640 70 L520 70 L520 95 L450 95" fill="none" stroke="var(--air)" stroke-width="2" stroke-dasharray="6 6" opacity=".9"/>
-                <path d="M450 95 L450 130 L400 130" fill="none" stroke="#4fc3f7" stroke-width="2" stroke-dasharray="8 6" opacity=".85"/>
-
-                <path d="M350 80 L250 80 L250 100" fill="none" stroke="#7a4a1f" stroke-width="6" opacity=".8"/>
-                <rect x="180" y="90" width="120" height="60" fill="#2b1b12" stroke="#111" stroke-width="3" rx="6"/>
-                <rect x="180" y="90" width="120" height="60" fill="url(#oilGrad)" opacity=".5" rx="6"/>
-
-                <g transform="translate(695,170)">
-                    <circle r="26" fill="#1a1a1a" stroke="#666" stroke-width="3"/>
-                    <line id="gauge-needle" x1="0" y1="0" x2="0" y2="-18" stroke="var(--accent)" stroke-width="3" stroke-linecap="round"/>
-                    <circle r="3" fill="#ccc"/>
-                </g>
-
-                <!-- ===== СЛОЙ 3: частицы ===== -->
-                <g id="particles"></g>
-                <g id="gusher" style="display:none">
-                    <ellipse cx="400" cy="55" rx="70" ry="20" fill="#8a5a2b" opacity=".5"/>
-                </g>
-
-                <!-- ===== СЛОЙ 4: подписи поверх всего ===== -->
-                <!-- НЕФТЬ -->
-                <text x="300" y="80" class="lbl" fill="#ffcf9e" text-anchor="end" font-size="13px">НЕФТЬ</text>
-                <line x1="305" y1="82" x2="345" y2="82" class="arrow"/>
-
-                <!-- ВОЗДУХ (поднят выше) -->
-                <text x="560" y="42" class="lbl" fill="#9fd8ff" font-size="13px">ВОЗДУХ</text>
-                <line x1="560" y1="46" x2="560" y2="62" class="arrow"/>
-
-                <!-- КОМПРЕССОР -->
-                <text x="695" y="125" class="lbl" text-anchor="middle" font-size="12px">КОМПРЕССОР</text>
-
-                <!-- СБОР НЕФТИ -->
-                <text x="240" y="175" class="lbl" text-anchor="middle" font-size="12px">СБОР НЕФТИ</text>
-
-                <!-- ДАВЛЕНИЕ -->
-                <text x="695" y="220" class="lbl" text-anchor="middle" fill="#aaa" font-size="12px">ДАВЛЕНИЕ</text>
-
-                <!-- Легенда -->
-                <g transform="translate(20,20)">
-                    <rect x="0" y="0" width="12" height="12" fill="#4fc3f7" rx="2"/>
-                    <text x="18" y="10" class="lbl" fill="#9fd8ff" font-size="12px">воздух</text>
-                    <rect x="0" y="20" width="12" height="12" fill="#7a4a1f" rx="2"/>
-                    <text x="18" y="30" class="lbl" fill="#ffcf9e" font-size="12px">нефть</text>
-                </g>
-            </svg>
+      <div class="stamp">
+        <h2>Результат</h2>
+        <div class="rate">
+          <div class="top"><span>Дебет скважины</span><b id="rate">0 %</b></div>
+          <div class="meter" aria-hidden="true"><div id="rateBar" data-t="bad"></div></div>
         </div>
-
-        <div class="controls">
-            <h2>Управление эрлифтом</h2>
-
-            <div class="ctrl">
-                <label><span>Давление воздуха</span><span id="pressureVal" class="status-value">0%</span></label>
-                <input type="range" id="pressure" min="0" max="100" value="0">
-            </div>
-
-            <div class="ctrl">
-                <label><span>Диаметр трубы</span><span id="pipeVal" class="status-value">40 см</span></label>
-                <input type="range" id="pipeWidth" min="20" max="100" value="40">
-            </div>
-
-            <div class="ctrl">
-                <label><span>Глубина погружения</span><span id="depthVal" class="status-value">60%</span></label>
-                <input type="range" id="depth" min="20" max="100" value="60">
-            </div>
-
-            <button id="pumpBtn" class="btn-pump">ВКЛЮЧИТЬ КОМПРЕССОР</button>
-
-            <div class="status">
-                <h3>Результат</h3>
-                <div class="row"><span>Дебет скважины:</span><b id="rate">0 %</b></div>
-                <div class="row"><span>Режим:</span><b id="mode">Остановлен</b></div>
-                <div id="feedback">Включите компрессор и подберите параметры.</div>
-            </div>
-        </div>
+        <div class="r"><span>Режим</span><span class="v" id="modeWrap" data-t="none"><i></i><em id="mode" style="font-style:normal">Остановлен</em></span></div>
+        <p id="feedback" role="status" aria-live="polite">Включите компрессор и подберите параметры.</p>
+      </div>
     </div>
+  </div>
 </div>
 
 <script>
-    const slide = document.getElementById('slide');
-    function fit(){
-        const s = Math.min(window.innerWidth/1280, window.innerHeight/720);
-        slide.style.transform = `scale(${s})`;
+(function(){
+'use strict';
+var state={on:false,pressure:0,pipeWidth:40,depth:60,particles:[],lastSpawn:0,lastT:0,rate:0};
+var $=function(id){return document.getElementById(id);};
+var pressureEl=$('pressure'),pressureVal=$('pressureVal');
+var pipeEl=$('pipeWidth'),pipeVal=$('pipeVal');
+var depthEl=$('depth'),depthVal=$('depthVal');
+var pumpBtn=$('pumpBtn'),rateEl=$('rate'),rateBar=$('rateBar');
+var modeEl=$('mode'),modeWrap=$('modeWrap'),feedbackEl=$('feedback');
+var particlesEl=$('particles'),needle=$('gauge-needle'),gusher=$('gusher');
+var pipeRect=$('pipeRect'),pipeHead=$('pipeHead'),pipeBottom=$('pipeBottom'),pipeShine=$('pipeShine');
+
+var PIPE_TOP_Y=120,PIPE_MIN_BOTTOM=280,PIPE_MAX_BOTTOM=470,PIPE_CX=400;
+
+function setPct(s){s.style.setProperty('--p',((s.value-s.min)/(s.max-s.min)*100)+'%');}
+
+pressureEl.addEventListener('input',function(e){
+  state.pressure=+e.target.value;pressureVal.textContent=state.pressure+'%';setPct(pressureEl);update();
+});
+pipeEl.addEventListener('input',function(e){
+  state.pipeWidth=+e.target.value;pipeVal.textContent=state.pipeWidth+' см';setPct(pipeEl);update();
+});
+depthEl.addEventListener('input',function(e){
+  state.depth=+e.target.value;depthVal.textContent=state.depth+'%';setPct(depthEl);update();
+});
+pumpBtn.addEventListener('click',function(){
+  state.on=!state.on;
+  pumpBtn.textContent=state.on?'Остановить компрессор':'Включить компрессор';
+  pumpBtn.setAttribute('aria-pressed',state.on?'true':'false');
+  update();
+});
+
+function getPipeBottomY(){
+  var t=(state.depth-20)/80;
+  return PIPE_MIN_BOTTOM+t*(PIPE_MAX_BOTTOM-PIPE_MIN_BOTTOM);
+}
+function updatePipeSize(){
+  var w=20+(state.pipeWidth-20)*(50/80);
+  var x=PIPE_CX-w/2;
+  var bottomY=getPipeBottomY();
+  var h=bottomY-PIPE_TOP_Y;
+  pipeRect.setAttribute('x',x);pipeRect.setAttribute('y',PIPE_TOP_Y);
+  pipeRect.setAttribute('width',w);pipeRect.setAttribute('height',h);
+  var headW=w+20;
+  pipeHead.setAttribute('x',PIPE_CX-headW/2);pipeHead.setAttribute('width',headW);
+  pipeBottom.setAttribute('x',x-2);pipeBottom.setAttribute('y',bottomY-4);pipeBottom.setAttribute('width',w+4);
+  var sx=x+w*0.25;
+  pipeShine.setAttribute('x1',sx);pipeShine.setAttribute('x2',sx);
+  pipeShine.setAttribute('y1',PIPE_TOP_Y+8);pipeShine.setAttribute('y2',bottomY-10);
+}
+function computeRate(){
+  if(!state.on||state.pressure<=0){return 0;}
+  var depthThreshold=12+(state.depth-20)*(48/80);
+  var widthFactor=state.pipeWidth/40;
+  var threshold=depthThreshold*(0.75+0.25*widthFactor);
+  if(state.pressure<threshold){return 0;}
+  var r=(state.pressure-threshold)*1.3*Math.min(2,widthFactor);
+  if(state.pressure>85){r=Math.max(0,100-(state.pressure-85)*2);}
+  return Math.min(100,Math.round(r));
+}
+function setMode(txt,tone,msg,gush){
+  modeEl.textContent=txt;modeWrap.setAttribute('data-t',tone);
+  feedbackEl.textContent=msg;
+  gusher.style.display=gush?'block':'none';
+}
+function update(){
+  updatePipeSize();
+  var rate=computeRate();
+  state.rate=rate;
+  rateEl.textContent=rate+' %';
+  rateBar.style.width=rate+'%';
+  rateBar.setAttribute('data-t',rate<40?(rate===0?'bad':'warn'):'ok');
+  needle.setAttribute('transform','rotate('+(-135+(state.pressure/100)*270)+')');
+
+  if(!state.on){
+    setMode('Остановлен','none','Компрессор выключен. Нефть остаётся в пласте.',false);
+  }else if(state.pressure===0){
+    setMode('Нет подачи','bad','Давление воздуха равно нулю — подъёма не будет.',false);
+  }else if(rate===0){
+    setMode('Недостаточно','bad','Давление слишком мало для подъёма с такой глубины. Увеличьте его или поднимите трубу выше.',false);
+  }else if(state.pressure>85){
+    setMode('Фонтан!','warn','Давление избыточно — нефть вырывается фонтаном. Потери, риск аварии.',true);
+  }else if(rate<40){
+    setMode('Слабый подъём','warn','Нефть поднимается медленно. Повысьте давление, увеличьте диаметр или уменьшите глубину.',false);
+  }else{
+    setMode('Эрлифт','ok','Оптимально: воздух вспенивает нефть, она стабильно поднимается по трубе.',false);
+  }
+}
+function getPipeBounds(){
+  var x=+pipeRect.getAttribute('x'),w=+pipeRect.getAttribute('width');
+  return {x:x,w:w,cx:x+w/2,bottom:+pipeBottom.getAttribute('y')};
+}
+function spawn(){
+  if(!state.on||state.rate<=0){return;}
+  var b=getPipeBounds(),i;
+  var airCount=Math.ceil(state.pressure/25);
+  for(i=0;i<airCount;i++){
+    state.particles.push({type:'air',x:b.x+2+Math.random()*(b.w-4),y:PIPE_TOP_Y+10,vy:3+Math.random()*3,r:2+Math.random()*2});
+  }
+  var oilCount=Math.ceil(state.rate/20);
+  for(i=0;i<oilCount;i++){
+    state.particles.push({type:'oil',x:b.x+2+Math.random()*(b.w-4),y:b.bottom-15-Math.random()*30,vy:-(2+state.rate/40+Math.random()*2),r:3+Math.random()*3});
+  }
+  if(state.rate>10&&Math.random()<0.7){
+    state.particles.push({type:'spray',x:350,y:80,vx:-(1+Math.random()*2),vy:(Math.random()*1.2-0.6),r:2+Math.random()*2});
+  }
+  if(state.pressure>85){
+    state.particles.push({type:'gusher',x:b.cx,y:60,vx:(Math.random()*4-2),vy:-(3+Math.random()*4),r:3+Math.random()*3});
+  }
+}
+function step(dt){
+  var k=dt/16.67,b=getPipeBounds();
+  for(var i=state.particles.length-1;i>=0;i--){
+    var p=state.particles[i];
+    if(p.type==='air'){
+      p.y+=p.vy*k;if(p.y>=b.bottom-10){state.particles.splice(i,1);}
+    }else if(p.type==='oil'){
+      p.y+=p.vy*k;if(p.y<PIPE_TOP_Y+10){state.particles.splice(i,1);}
+    }else if(p.type==='spray'){
+      p.x+=p.vx*k;p.y+=p.vy*k;
+      if(p.x<185||p.y<85||p.y>150){state.particles.splice(i,1);}
+    }else if(p.type==='gusher'){
+      p.x+=p.vx*k;p.y+=p.vy*k;p.vy+=0.15*k;
+      if(p.y>150){state.particles.splice(i,1);}
     }
-    window.addEventListener('resize', fit); fit();
-
-    const state = {
-        on:false, pressure:0, pipeWidth:40, depth:60,
-        particles:[], lastSpawn:0, lastT:0, rate:0
-    };
-
-    const pressureEl = document.getElementById('pressure');
-    const pressureVal = document.getElementById('pressureVal');
-    const pipeEl = document.getElementById('pipeWidth');
-    const pipeVal = document.getElementById('pipeVal');
-    const depthEl = document.getElementById('depth');
-    const depthVal = document.getElementById('depthVal');
-    const pumpBtn = document.getElementById('pumpBtn');
-    const rateEl = document.getElementById('rate');
-    const modeEl = document.getElementById('mode');
-    const feedbackEl = document.getElementById('feedback');
-    const particlesEl = document.getElementById('particles');
-    const needle = document.getElementById('gauge-needle');
-    const gusher = document.getElementById('gusher');
-
-    const pipeRect = document.getElementById('pipeRect');
-    const pipeHead = document.getElementById('pipeHead');
-    const pipeBottom = document.getElementById('pipeBottom');
-
-    const PIPE_TOP_Y = 120;
-    const PIPE_MIN_BOTTOM = 280;
-    const PIPE_MAX_BOTTOM = 470;
-    const PIPE_CX = 400;
-
-    pressureEl.addEventListener('input', e=>{
-        state.pressure = +e.target.value;
-        pressureVal.textContent = state.pressure+'%';
-        update();
-    });
-    pipeEl.addEventListener('input', e=>{
-        state.pipeWidth = +e.target.value;
-        pipeVal.textContent = state.pipeWidth + ' см';
-        update();
-    });
-    depthEl.addEventListener('input', e=>{
-        state.depth = +e.target.value;
-        depthVal.textContent = state.depth+'%';
-        update();
-    });
-    pumpBtn.addEventListener('click', ()=>{
-        state.on = !state.on;
-        pumpBtn.textContent = state.on ? 'ОСТАНОВИТЬ КОМПРЕССОР' : 'ВКЛЮЧИТЬ КОМПРЕССОР';
-        pumpBtn.classList.toggle('active', state.on);
-        update();
-    });
-
-    function getPipeBottomY(){
-        const t = (state.depth - 20) / 80;
-        return PIPE_MIN_BOTTOM + t * (PIPE_MAX_BOTTOM - PIPE_MIN_BOTTOM);
-    }
-
-    function updatePipeSize(){
-        const w = 20 + (state.pipeWidth - 20) * (50/80);
-        const x = PIPE_CX - w/2;
-        const bottomY = getPipeBottomY();
-        const h = bottomY - PIPE_TOP_Y;
-
-        pipeRect.setAttribute('x', x);
-        pipeRect.setAttribute('y', PIPE_TOP_Y);
-        pipeRect.setAttribute('width', w);
-        pipeRect.setAttribute('height', h);
-
-        const headW = w + 20;
-        pipeHead.setAttribute('x', PIPE_CX - headW/2);
-        pipeHead.setAttribute('width', headW);
-
-        pipeBottom.setAttribute('x', x - 2);
-        pipeBottom.setAttribute('y', bottomY - 4);
-        pipeBottom.setAttribute('width', w + 4);
-    }
-
-    function computeRate(){
-        if(!state.on || state.pressure <= 0) return 0;
-        const depthThreshold = 12 + (state.depth - 20) * (48/80);
-        const widthFactor = state.pipeWidth / 40;
-        const threshold = depthThreshold * (0.75 + 0.25 * widthFactor);
-        if(state.pressure < threshold) return 0;
-        let r = (state.pressure - threshold) * 1.3 * Math.min(2, widthFactor);
-        if(state.pressure > 85) r = Math.max(0, 100 - (state.pressure - 85) * 2);
-        return Math.min(100, Math.round(r));
-    }
-
-    function update(){
-        updatePipeSize();
-        const rate = computeRate();
-        state.rate = rate;
-        rateEl.textContent = rate + ' %';
-
-        const angle = -135 + (state.pressure/100)*270;
-        needle.setAttribute('transform', `rotate(${angle})`);
-
-        if(!state.on){
-            modeEl.textContent = 'Остановлен';
-            feedbackEl.textContent = 'Компрессор выключен. Нефть остаётся в пласте.';
-            gusher.style.display = 'none';
-        } else if(state.pressure === 0){
-            modeEl.textContent = 'Нет подачи';
-            feedbackEl.textContent = 'Давление воздуха равно нулю — подъёма не будет.';
-            gusher.style.display = 'none';
-        } else if(rate === 0){
-            modeEl.textContent = 'Недостаточно';
-            feedbackEl.textContent = 'Давление слишком мало для подъёма с такой глубины. Увеличьте его или поднимите трубу выше.';
-            gusher.style.display = 'none';
-        } else if(state.pressure > 85){
-            modeEl.textContent = 'Фонтан!';
-            feedbackEl.textContent = 'Давление избыточно — нефть вырывается фонтаном. Потери, риск аварии.';
-            gusher.style.display = 'block';
-        } else if(rate < 40){
-            modeEl.textContent = 'Слабый подъём';
-            feedbackEl.textContent = 'Нефть поднимается медленно. Повысьте давление, увеличьте диаметр или уменьшите глубину.';
-            gusher.style.display = 'none';
-        } else {
-            modeEl.textContent = 'Эрлифт';
-            feedbackEl.textContent = 'Оптимально: воздух вспенивает нефть, она стабильно поднимается по трубе.';
-            gusher.style.display = 'none';
-        }
-    }
-
-    function getPipeBounds(){
-        const x = +pipeRect.getAttribute('x');
-        const w = +pipeRect.getAttribute('width');
-        return { x, w, cx: x + w/2, bottom: +pipeBottom.getAttribute('y') };
-    }
-
-    function spawn(){
-        if(!state.on || state.rate <= 0) return;
-        const b = getPipeBounds();
-
-        const airCount = Math.ceil(state.pressure / 25);
-        for(let i=0;i<airCount;i++){
-            state.particles.push({
-                type:'air',
-                x: b.x + 2 + Math.random()*(b.w-4),
-                y: PIPE_TOP_Y + 10,
-                vy: 3 + Math.random()*3,
-                r: 2 + Math.random()*2
-            });
-        }
-        const oilCount = Math.ceil(state.rate / 20);
-        for(let i=0;i<oilCount;i++){
-            state.particles.push({
-                type:'oil',
-                x: b.x + 2 + Math.random()*(b.w-4),
-                y: b.bottom - 15 - Math.random()*30,
-                vy: -(2 + state.rate/40 + Math.random()*2),
-                r: 3 + Math.random()*3
-            });
-        }
-        if(state.rate > 10 && Math.random() < 0.7){
-            state.particles.push({
-                type:'spray',
-                x: 350, y: 80,
-                vx: -(1 + Math.random()*2),
-                vy: (Math.random()*1.2 - .6),
-                r: 2 + Math.random()*2
-            });
-        }
-        if(state.pressure > 85){
-            state.particles.push({
-                type:'gusher',
-                x: b.cx, y: 60,
-                vx: (Math.random()*4 - 2),
-                vy: -(3 + Math.random()*4),
-                r: 3 + Math.random()*3
-            });
-        }
-    }
-
-    function step(dt){
-        const k = dt/16.67;
-        const b = getPipeBounds();
-        for(let i=state.particles.length-1;i>=0;i--){
-            const p = state.particles[i];
-            if(p.type === 'air'){
-                p.y += p.vy*k;
-                if(p.y >= b.bottom - 10) state.particles.splice(i,1);
-            } else if(p.type === 'oil'){
-                p.y += p.vy*k;
-                if(p.y < PIPE_TOP_Y + 10) state.particles.splice(i,1);
-            } else if(p.type === 'spray'){
-                p.x += p.vx*k; p.y += p.vy*k;
-                if(p.x < 185 || p.y < 85 || p.y > 150) state.particles.splice(i,1);
-            } else if(p.type === 'gusher'){
-                p.x += p.vx*k; p.y += p.vy*k;
-                p.vy += 0.15*k;
-                if(p.y > 150) state.particles.splice(i,1);
-            }
-        }
-    }
-
-    function draw(){
-        let html='';
-        for(const p of state.particles){
-            let color='#4fc3f7';
-            if(p.type === 'oil') color='#7a4a1f';
-            else if(p.type === 'spray') color='#c98a4b';
-            else if(p.type === 'gusher') color='#8a5a2b';
-            html += `<circle cx="${p.x.toFixed(1)}" cy="${p.y.toFixed(1)}" r="${p.r.toFixed(1)}" fill="${color}" opacity=".85"/>`;
-        }
-        particlesEl.innerHTML = html;
-    }
-
-    function loop(t){
-        if(!state.lastT) state.lastT = t;
-        const dt = t - state.lastT;
-        state.lastT = t;
-        if(t - state.lastSpawn > 60){
-            spawn();
-            state.lastSpawn = t;
-        }
-        step(dt);
-        draw();
-        requestAnimationFrame(loop);
-    }
-
-    requestAnimationFrame(loop);
-    update();
+  }
+}
+var CLS={air:'p-air',oil:'p-oil',spray:'p-spray',gusher:'p-gush'};
+function draw(){
+  var html='';
+  for(var i=0;i<state.particles.length;i++){
+    var p=state.particles[i];
+    html+='<circle class="'+CLS[p.type]+'" cx="'+p.x.toFixed(1)+'" cy="'+p.y.toFixed(1)+'" r="'+p.r.toFixed(1)+'" opacity=".85"/>';
+  }
+  particlesEl.innerHTML=html;
+}
+function loop(t){
+  if(!state.lastT){state.lastT=t;}
+  var dt=Math.min(50,t-state.lastT);
+  state.lastT=t;
+  if(t-state.lastSpawn>60){spawn();state.lastSpawn=t;}
+  step(dt);draw();
+  requestAnimationFrame(loop);
+}
+setPct(pressureEl);setPct(pipeEl);setPct(depthEl);
+update();
+requestAnimationFrame(loop);
+})();
 </script>
-</body>
-</html>
+
+</body></html>
